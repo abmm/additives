@@ -1,0 +1,44 @@
+- model_class = Additive
+.page-header
+  %h1=t '.title', :default => "Additive List"
+.table-responsive
+  %table.table.table-striped.table-condensed
+    %thead
+      %tr
+        %th= model_class.human_attribute_name(:id)
+        %th= model_class.human_attribute_name(:code)
+        %th= model_class.human_attribute_name(:name)
+        %th= model_class.human_attribute_name(:classification)
+        %th= model_class.human_attribute_name(:origin)
+        %th= model_class.human_attribute_name(:description)
+        %th= model_class.human_attribute_name(:use)
+        %th= model_class.human_attribute_name(:effects)
+        %th= model_class.human_attribute_name(:toxicity)
+        %th= model_class.human_attribute_name(:trans)
+        %th=t '.actions', :default => t("helpers.actions")
+        %th
+    %tbody
+      - @additives.each do |additive|
+        %tr
+          %td= link_to additive.id, additive_path(additive)
+          %td= additive.code
+          %td= additive.name
+          %td= additive.classification
+          %td= additive.origin
+          %td= additive.description
+          %td= additive.use
+          %td= additive.effects
+          %td= additive.toxicity
+          %td= additive.trans
+          %td
+            = link_to edit_additive_path(additive) do
+              %ul
+                %i.fa.fa-pencil-square-o.fa-2x
+          %td
+            = link_to additive_path(additive), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) } do
+              %ul{:style => "text-align: center"}
+                %i.fa.fa-2x.fa-times
+
+  = link_to :new_additive do
+    .btn.btn-primary
+      = 'Add New Additive'

@@ -1,0 +1,61 @@
+= form_for @additive, html: { class: "form form-horizontal" } do |f|
+  .form-group
+    = f.label :code, class: 'control-label'
+    .controls
+      = f.text_field :code, class: 'form-control', required: true
+    = error_span(@additive[:code])
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@additive[:name])
+  .form-group
+    = f.label :classification, class: 'control-label'
+    .controls
+      = f.select :classification, [["Colorantes", 0], ["Chungo", 1]]
+    = error_span(@additive[:classification])
+  .form-group
+    = f.label :origin, class: 'control-label'
+    .controls
+      = f.select :origin, [["Animal", 0], ["Mineral", 1]]
+    = error_span(@additive[:origin])
+  .form-group
+    = f.label :description, class: 'control-label'
+    .controls
+      = f.text_field :description, class: 'form-control', required: true
+    = error_span(@additive[:description])
+  .form-group
+    = f.label :use, class: 'control-label'
+    .controls
+      = f.text_field :use, class: 'form-control', required: true
+    = error_span(@additive[:use])
+  .form-group
+    = f.label :effects, class: 'control-label'
+    .controls
+      = f.text_field :effects, class: 'form-control', required: true
+    = error_span(@additive[:effects])
+  .form-group
+    = f.label :toxicity, class: 'control-label'
+    .controls
+      = f.select :toxicity, [["Inofensivo", 0], ["Precaucion", 1], ["Peligroso", 2]]
+    = error_span(@additive[:toxicity])
+  .form-group
+    = f.label :trans, class: 'control-label'
+    .controls
+      = f.text_field :trans, class: 'form-control', required: true
+    = error_span(@additive[:trans])
+
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), additives_path, :class => 'btn btn-default'
+
+/ :javascript
+/   $(function() {
+/       var contacts = #{@contacts}
+/       $( "#contact_value" ).autocomplete({
+/         source: contacts,
+/         select: function (event, ui) {
+/             $('#additive_contact_id').val(ui.item.id);
+/             return false;
+/         }
+/       });
+/     });
