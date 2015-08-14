@@ -71,3 +71,8 @@ group :development, :test do
 
 end
 
+#To solve problems in Heroku
+gem "rails_12factor", , group: :production
+
+
+
