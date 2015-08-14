@@ -15,5 +15,3 @@
  *= require bootstrap_and_overrides
  *= require jquery-ui/autocomplete
  */
-
-= require jquery-ui
