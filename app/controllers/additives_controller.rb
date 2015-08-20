@@ -74,7 +74,7 @@ class AdditivesController < ApplicationController
     def additive_params
       respond_to do |format|
         format.html { params.require(:additive).permit(:code, :name, :classification_id,
-         :description, :origin_id, :use, :toxicity, :trans, :effects) }
+         :description, :origin_id, :use, :toxicity, :effects) }
       end
     end
 end

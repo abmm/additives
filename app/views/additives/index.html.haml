@@ -14,7 +14,6 @@
         %th= model_class.human_attribute_name(:use)
         %th= model_class.human_attribute_name(:effects)
         %th= model_class.human_attribute_name(:toxicity)
-        %th= model_class.human_attribute_name(:trans)
         %th=t '.actions', :default => t("helpers.actions")
         %th
     %tbody
@@ -29,7 +28,6 @@
           %td= additive.use
           %td= additive.effects
           %td= additive.toxicity
-          %td= additive.trans
           %td
             = link_to edit_additive_path(additive) do
               %ul

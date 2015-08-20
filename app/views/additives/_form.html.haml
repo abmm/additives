@@ -39,11 +39,6 @@
     .controls
       = f.select :toxicity, [["Inofensivo", 0], ["Precaucion", 1], ["Peligroso", 2]]
     = error_span(@additive[:toxicity])
-  .form-group
-    = f.label :trans, class: 'control-label'
-    .controls
-      = f.text_field :trans, class: 'form-control', required: true
-    = error_span(@additive[:trans])
 
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), additives_path, :class => 'btn btn-default'
