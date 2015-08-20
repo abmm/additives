@@ -23,8 +23,8 @@
           %td= link_to additive.id, additive_path(additive)
           %td= additive.code
           %td= additive.name
-          %td= additive.classification
-          %td= additive.origin
+          %td= additive.classification.name if additive.classification
+          %td= additive.origin.name         if additive.origin
           %td= additive.description
           %td= additive.use
           %td= additive.effects

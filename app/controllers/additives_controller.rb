@@ -15,7 +15,9 @@ class AdditivesController < ApplicationController
 
   # GET /additives/new
   def new
-    @additive = Additive.new
+    @additive         = Additive.new
+    @origins          = Origin.all.map{|x| [x.name, x.origin_id]}
+    @classifications  = Classification.all.map{|x| [x.name, x.classification_id]}
   end
 
   # GET /additives/1/edit
@@ -71,8 +73,8 @@ class AdditivesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def additive_params
       respond_to do |format|
-        format.html { params.require(:additive).permit(:code, :name, :classification,
-         :description, :origin, :use, :toxicity, :trans, :effects) }
+        format.html { params.require(:additive).permit(:code, :name, :classification_id,
+         :description, :origin_id, :use, :toxicity, :trans, :effects) }
       end
     end
 end

@@ -12,13 +12,13 @@
   .form-group
     = f.label :classification, class: 'control-label'
     .controls
-      = f.select :classification, [["Colorantes", 0], ["Chungo", 1]]
-    = error_span(@additive[:classification])
+      = f.select :classification_id, @classifications
+    = error_span(@additive[:classification_id])
   .form-group
     = f.label :origin, class: 'control-label'
     .controls
-      = f.select :origin, [["Animal", 0], ["Mineral", 1]]
-    = error_span(@additive[:origin])
+      = f.select :origin_id, @origins
+    = error_span(@additive[:origin_id])
   .form-group
     = f.label :description, class: 'control-label'
     .controls
