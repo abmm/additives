@@ -5,29 +5,30 @@
   %table.table.table-striped.table-condensed
     %thead
       %tr
-        %th= model_class.human_attribute_name(:id)
+        -#%th= model_class.human_attribute_name(:id)
         %th= model_class.human_attribute_name(:code)
         %th= model_class.human_attribute_name(:name)
         %th= model_class.human_attribute_name(:classification)
         %th= model_class.human_attribute_name(:origin)
-        %th= model_class.human_attribute_name(:description)
-        %th= model_class.human_attribute_name(:use)
-        %th= model_class.human_attribute_name(:effects)
+        -#%th= model_class.human_attribute_name(:description)
+        -#%th= model_class.human_attribute_name(:use)
+        -#%th= model_class.human_attribute_name(:effects)
         %th= model_class.human_attribute_name(:toxicity)
         %th=t '.actions', :default => t("helpers.actions")
         %th
     %tbody
       - @additives.each do |additive|
         %tr
-          %td= link_to additive.id, additive_path(additive)
-          %td= additive.code
+          -#%td= link_to additive.id, additive_path(additive)
+          %td{:style => "white-space : nowrap;"}
+            = link_to additive.code, additive_path(additive)
           %td= additive.name
           %td= additive.classification.name if additive.classification
           %td= additive.origin.name         if additive.origin
-          %td= additive.description
-          %td= additive.use
-          %td= additive.effects
-          %td= additive.toxicity
+          -#%td= additive.description
+          -#%td= additive.use
+          -#%td= additive.effects
+          %td= toxicity_to_s(additive.toxicity)
           %td
             = link_to edit_additive_path(additive) do
               %ul

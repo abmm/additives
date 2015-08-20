@@ -13,23 +13,28 @@
 %p
   %strong= model_class.human_attribute_name(:origin) + ':'
   %br
-  = @additive.origin
+  = @additive.origin.name    if @additive.origin
+%p
+  %strong= model_class.human_attribute_name(:toxicity) + ':'
+  %br
+  = toxicity_to_s(@additive.toxicity)
+%p
+  %strong= model_class.human_attribute_name(:classification) + ':'
+  %br
+  = @additive.classification.name    if @additive.classification
 %p
   %strong= model_class.human_attribute_name(:description) + ':'
   %br
   = @additive.description
-/ %p
-/   %strong= model_class.human_attribute_name(:type_cd) + ':'
-/   %br
-/   = @additive.type_cd
-/ %p
-/   %strong= model_class.human_attribute_name(:status_cd) + ':'
-/   %br
-/   = @additive.status_cd
-/ %p
-/   %strong= model_class.human_attribute_name(:created_by_cd) + ':'
-/   %br
-/   = @additive.created_by_cd
+%p
+  %strong= model_class.human_attribute_name(:use) + ':'
+  %br
+  = @additive.use
+%p
+  %strong= model_class.human_attribute_name(:effects) + ':'
+  %br
+  = @additive.effects
+
 
 
 = link_to t('.back', :default => t("helpers.links.back")), additives_path, :class => 'btn btn-default'

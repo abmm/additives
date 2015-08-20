@@ -37,7 +37,7 @@
   .form-group
     = f.label :toxicity, class: 'control-label'
     .controls
-      = f.select :toxicity, [["Inofensivo", 0], ["Precaucion", 1], ["Peligroso", 2]]
+      = f.select :toxicity, [["INOFENSIVO", 0], ["PRECAUCIÓN", 1], ["PELIGROSO", 2]]
     = error_span(@additive[:toxicity])
 
   = f.submit nil,class: 'btn btn-primary'
