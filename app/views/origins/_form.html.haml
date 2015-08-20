@@ -1,0 +1,13 @@
+= form_for @origin, html: { class: "form form-horizontal origin" } do |f|
+  .form-group
+    = f.label :origin_id, class: 'control-label'
+    .controls
+      = f.text_field :origin_id, class: 'form-control', required: true
+    = error_span(@origin[:origin_id])
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@origin[:name])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), origins_path, :class => 'btn btn-default'

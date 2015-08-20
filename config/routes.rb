@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :origins
+
+  resources :classifications
+
   devise_for :users
   resources :contacts
   resources :additives

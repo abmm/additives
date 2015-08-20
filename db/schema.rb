@@ -11,23 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713211520) do
+ActiveRecord::Schema.define(version: 20150820172712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "additives", force: :cascade do |t|
-    t.string   "code",           limit: 6,   null: false
-    t.string   "name",           limit: 100, null: false
-    t.integer  "classification",             null: false
-    t.integer  "origin",                     null: false
-    t.string   "description",    limit: 400, null: false
-    t.string   "use",            limit: 400
-    t.string   "effects",        limit: 400
-    t.integer  "toxicity",                   null: false
-    t.integer  "trans",                      null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "code",              limit: 20,  null: false
+    t.string   "name",              limit: 150, null: false
+    t.integer  "classification_id",             null: false
+    t.integer  "origin_id",                     null: false
+    t.text     "description",                   null: false
+    t.text     "use"
+    t.text     "effects"
+    t.integer  "toxicity",                      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "classifications", force: :cascade do |t|
+    t.integer  "classification_id"
+    t.string   "name",              limit: 100, null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "origins", force: :cascade do |t|
+    t.integer  "origin_id"
+    t.string   "name",       limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|

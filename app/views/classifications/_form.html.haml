@@ -1,0 +1,13 @@
+= form_for @classification, html: { class: "form form-horizontal classification" } do |f|
+  .form-group
+    = f.label :classification_id, class: 'control-label'
+    .controls
+      = f.text_field :classification_id, class: 'form-control', required: true
+    = error_span(@classification[:classification_id])
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@classification[:name])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), classifications_path, :class => 'btn btn-default'

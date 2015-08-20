@@ -1,5 +1,6 @@
 class AdditivesController < ApplicationController
   before_action :set_additive, only: [:show, :edit, :update, :destroy]
+  before_action :load_relations, only: [:new, :edit]
 
   # GET /additives
   # GET /additives.json
@@ -15,7 +16,7 @@ class AdditivesController < ApplicationController
 
   # GET /additives/new
   def new
-    @additive = Additive.new
+    @additive         = Additive.new
   end
 
   # GET /additives/1/edit
@@ -71,8 +72,13 @@ class AdditivesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def additive_params
       respond_to do |format|
-        format.html { params.require(:additive).permit(:code, :name, :classification,
-         :description, :origin, :use, :toxicity, :trans, :effects) }
+        format.html { params.require(:additive).permit(:code, :name, :classification_id,
+         :description, :origin_id, :use, :toxicity, :effects) }
       end
+    end
+
+    def load_relations
+      @origins          = Origin.all.map{|x| [x.name, x.origin_id]}
+      @classifications  = Classification.all.map{|x| [x.name, x.classification_id]}
     end
 end

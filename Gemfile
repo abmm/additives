@@ -71,7 +71,8 @@ group :development, :test do
 
 end
 
-#To solve problems in Heroku
+#This is needed to show logs correctyle in Heroku using Rails 4,
+#otherwise error 500 will not showed in app logs.
 gem "rails_12factor", group: :production
 
 
