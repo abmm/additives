@@ -1,5 +1,6 @@
 class AdditivesController < ApplicationController
   before_action :set_additive, only: [:show, :edit, :update, :destroy]
+  before_action :load_relations, only: [:new, :edit]
 
   # GET /additives
   # GET /additives.json
@@ -16,8 +17,6 @@ class AdditivesController < ApplicationController
   # GET /additives/new
   def new
     @additive         = Additive.new
-    @origins          = Origin.all.map{|x| [x.name, x.origin_id]}
-    @classifications  = Classification.all.map{|x| [x.name, x.classification_id]}
   end
 
   # GET /additives/1/edit
@@ -76,5 +75,10 @@ class AdditivesController < ApplicationController
         format.html { params.require(:additive).permit(:code, :name, :classification_id,
          :description, :origin_id, :use, :toxicity, :effects) }
       end
+    end
+
+    def load_relations
+      @origins          = Origin.all.map{|x| [x.name, x.origin_id]}
+      @classifications  = Classification.all.map{|x| [x.name, x.classification_id]}
     end
 end
