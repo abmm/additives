@@ -5,6 +5,10 @@ class ClassificationsController < ApplicationController
   # GET /classifications.json
   def index
     @classifications = Classification.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @classifications }
+    end
   end
 
   # GET /classifications/1

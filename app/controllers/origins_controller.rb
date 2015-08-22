@@ -5,6 +5,10 @@ class OriginsController < ApplicationController
   # GET /origins.json
   def index
     @origins = Origin.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @origins }
+    end
   end
 
   # GET /origins/1

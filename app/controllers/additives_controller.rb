@@ -6,6 +6,10 @@ class AdditivesController < ApplicationController
   # GET /additives.json
   def index
     @additives = Additive.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @additives }
+    end
   end
 
   # GET /additives/1
