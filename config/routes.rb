@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :classifications
 
   devise_for :users
+  match 'users/show', to: 'users#show', via: 'get'
   resources :contacts
   resources :additives
 

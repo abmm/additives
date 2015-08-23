@@ -3,13 +3,11 @@ class Api::V1::AdditivesController < Api::ApplicationController
   before_action :get_user
 
   def index
-    @additives = Additive.where(user_id: @user.id )
-    render json: @additives
+    @additives = Additive.all.includes(:classification).includes(:origin)
   end
 
   # POST /api/v1/additives
   def create
-
     @additive                  = Additive.new(additive_params)
     if @additive.save
       render json: @additive
