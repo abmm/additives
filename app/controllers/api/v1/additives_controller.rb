@@ -4,7 +4,7 @@ class Api::V1::AdditivesController < Api::ApplicationController
 
   def index
     @additives = Rails.cache.fetch("additives#index", :expires_in => 1.day) do
-      Additive.all.includes(:classification).includes(:origin)
+      Additive.includes(:classification).includes(:origin).order('code ASC')
     end
   end
 

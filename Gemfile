@@ -76,5 +76,7 @@ end
 gem "rails_12factor", group: :production
 #For Memcache cloud in heroku
 gem 'dalli', group: :production
+#Pagination
+gem 'will_paginate', '~> 3.0.6'
 
 

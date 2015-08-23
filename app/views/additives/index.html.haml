@@ -38,6 +38,8 @@
               %ul{:style => "text-align: center"}
                 %i.fa.fa-2x.fa-times
 
+  = will_paginate @additives
+  %br
   = link_to :new_additive do
     .btn.btn-primary
       = 'Add New Additive'

@@ -5,8 +5,8 @@ class AdditivesController < ApplicationController
   # GET /additives
   # GET /additives.json
   def index
-    @additives = Rails.cache.fetch("additives#index", :expires_in => 1.day) do
-      Additive.all.includes(:classification).includes(:origin)
+    @additives = Rails.cache.fetch("additives#index_page#{params[:page]}", :expires_in => 1.day) do
+      Additive.paginate(:page => params[:page]).includes(:classification).includes(:origin).order('code ASC')
     end
   end
 

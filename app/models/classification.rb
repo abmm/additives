@@ -4,6 +4,6 @@ class Classification < ActiveRecord::Base
 
 	private
 		def expire_cache
-			Rails.cache.delete("additives#index")
+			Rails.cache.clear
 		end
 end
