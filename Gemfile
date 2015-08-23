@@ -74,6 +74,7 @@ end
 #This is needed to show logs correctyle in Heroku using Rails 4,
 #otherwise error 500 will not showed in app logs.
 gem "rails_12factor", group: :production
-
+#For Memcache cloud in heroku
+gem 'dalli', group: :production
 
 
