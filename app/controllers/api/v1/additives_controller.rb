@@ -3,7 +3,9 @@ class Api::V1::AdditivesController < Api::ApplicationController
   before_action :get_user
 
   def index
-    @additives = Additive.all.includes(:classification).includes(:origin)
+    @additives = Rails.cache.fetch("additives#index", :expires_in => 1.day) do
+      Additive.all.includes(:classification).includes(:origin)
+    end
   end
 
   # POST /api/v1/additives

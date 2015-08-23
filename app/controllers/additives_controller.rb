@@ -5,10 +5,8 @@ class AdditivesController < ApplicationController
   # GET /additives
   # GET /additives.json
   def index
-    @additives = Additive.all
-    respond_to do |format|
-      format.html
-      format.json { render json: @additives }
+    @additives = Rails.cache.fetch("additives#index", :expires_in => 1.day) do
+      Additive.all.includes(:classification).includes(:origin)
     end
   end
 
