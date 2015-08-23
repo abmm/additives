@@ -1,4 +1,4 @@
-class Api::ApplicationController < ApplicationController
+class Api::ApplicationController < ActionController::Base
 	before_action :authenticate
 	
 	#Format the response message
