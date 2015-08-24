@@ -6,6 +6,7 @@ class Api::V1::AdditivesController < Api::ApplicationController
     @additives = Rails.cache.fetch("additives#index", :expires_in => 1.day) do
       Additive.all.includes(:classification).includes(:origin)
     end
+    render jbuilder: @additives , :locals => { :encrypted => params[:fistro] }
   end
 
   # POST /api/v1/additives

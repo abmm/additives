@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Settings files
-gem "rails_config"
+gem "config"
 
 #Enumerables
 gem 'simple_enum'
@@ -76,5 +76,7 @@ end
 gem "rails_12factor", group: :production
 #For Memcache cloud in heroku
 gem 'dalli', group: :production
+#JSON Web Token
+gem 'jwt'
 
 

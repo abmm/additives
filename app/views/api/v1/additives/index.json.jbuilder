@@ -1,4 +1,4 @@
-json.cache! ['v1', @additives], expires_in: 10.minutes do
+payload = json.cache! ['v1', @additives], expires_in: 10.minutes do
 	json.array! @additives do |additive|
 		json.extract! additive, :id,:code,:name,:description,:use,:effects
 		
@@ -7,3 +7,5 @@ json.cache! ['v1', @additives], expires_in: 10.minutes do
 		json.toxicity				toxicity_to_s(additive.toxicity)
 	end
 end
+
+return encrypt_json(payload) if encrypted

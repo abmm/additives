@@ -7,4 +7,12 @@ module ApplicationHelper
 		end
 		str
 	end
+
+	#Encrypt data using JWT and return it as json
+	# Input:  a hash
+	# Output: {'payload' => 'xjksgxkjabxkjasbjkxbjasbxjabsjxkbasxkajs'}
+	def encrypt_json payload
+		{ 'payload' => (JWT.encode payload, Settings.hmac_secret, 'HS256') }.to_json
+	end
+
 end
