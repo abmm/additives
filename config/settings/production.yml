@@ -1,0 +1,1 @@
+hmac_secret: ENV['HMAC_SECRET']

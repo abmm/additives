@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #Settings files
-gem "rails_config"
+gem "config"
 
 #Enumerables
 gem 'simple_enum'
@@ -78,5 +78,7 @@ gem "rails_12factor", group: :production
 gem 'dalli', group: :production
 #Pagination
 gem 'will_paginate', '~> 3.0.6'
+#JSON Web Token
+gem 'jwt'
 
 
